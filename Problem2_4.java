@@ -17,7 +17,8 @@ public class Problem2_4 {
 		
 		/* Partition list */
 		while (node != null) {
-			
+			Node next = node.next;
+			node.next = null;
 			if (node.data < x) {
 				if (beforeStart == null) {
 					beforeStart = node;
@@ -35,11 +36,9 @@ public class Problem2_4 {
 					afterEnd = afterEnd.next;
 				}
 			}
-			node = node.next;
-			
+			node = next;		
 		}
-		beforeEnd.next = null;
-		afterEnd.next = null;
+		
 		
 		/* Merge before list and after list */
 		if (beforeStart == null) {
